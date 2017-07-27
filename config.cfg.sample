@@ -1,2 +1,5 @@
-[default]
-DEVELOPER_KEY = "change_me"
+[defaults]
+# Here goes the api key that you can get from the link below
+# https://console.cloud.google.com/apis/credentials
+
+developer_key = "change_me"
