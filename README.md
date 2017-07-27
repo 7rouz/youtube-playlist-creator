@@ -9,9 +9,9 @@ Second you need to substitute the value of DEVELOPER_KEY in search.py .
 
 Once that's done you will need to install the needed packages and it's up to you if you want ti install it directly in your environment by running this command:
 ```shell
-sudo pip install --upgrade google-api-python-client
+sudo pip install -r requirements.txt
 ```
-or you are a good person that respects its environment and doesn't want to put everything on it, so you will create a virtualenv and install the package there. To do so you will run the following commands:
+or you are a good person that respects its environment and doesn't want to put everything on it, so you will create a virtualenv and install requirements there. To do so you will run the following commands:
 ```shell
   virtualenv .venv
 ```
@@ -19,10 +19,8 @@ or you are a good person that respects its environment and doesn't want to put e
   source .venv/bin/activate
 ```
 ```shell
-  pip install --upgrade google-api-python-client 
+  pip install -r requirements.txt 
 ```
-PS: 
- For the future when there will be many many packages, I will add a requirement.txt
 
 Now you are all set to run the command that will return videos, channels, playlist that match keywords in keyword_list in youtube_playlist_creator.py.
 
