@@ -1,4 +1,4 @@
-from search import youtube_search
+from search import youtube_search_video
 from apiclient.errors import HttpError
 import ConfigParser
 
@@ -13,7 +13,7 @@ if __name__ == "__main__":
 
   for keyword in keyword_list:
     try:
-      youtube_search(keyword=keyword,dev_key=dev_key,max_results=50)
+      youtube_search_video(keyword=keyword,dev_key=dev_key,max_results=50)
     except HttpError, e:
       print "An HTTP error %d occurred:\n%s" % (e.resp.status, e.content)
 

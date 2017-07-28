@@ -103,3 +103,5 @@ ENV/
 
 # conf files 
 config.cfg
+client_secrets.json
+youtube_playlist_creator.py-oauth2.json
