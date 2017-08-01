@@ -2,10 +2,14 @@ apiclient==1.0.3
 discovery==0.0.4
 google-api-python-client==1.6.2
 httplib2==0.10.3
+numpy==1.13.1
 oauth2client==4.1.2
+pandas==0.20.3
 pkg-resources==0.0.0
 pyasn1==0.2.3
 pyasn1-modules==0.0.9
+python-dateutil==2.6.1
+pytz==2017.2
 requests==2.5.0
 rsa==3.4.2
 six==1.10.0
