@@ -6,3 +6,10 @@
 #   https://cloud.google.com/console
 # Please ensure that you have enabled the YouTube Data API for your project.
 developer_key = "change_me"
+
+# The title thatyou xant to give to your playlist
+playlist_title = July 2017
+
+# the path to the file containing songs keywords
+# each song keywords should be in seprate line 
+keyword_file = ./keyword.txt.sample

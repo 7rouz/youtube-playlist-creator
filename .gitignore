@@ -105,3 +105,4 @@ ENV/
 config.cfg
 client_secrets.json
 youtube_playlist_creator.py-oauth2.json
+youtube-api-snippets-oauth2.json

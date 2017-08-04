@@ -19,6 +19,7 @@ def youtube_search_video(keyword, max_results, dev_key):
 
   # list of all videos that match the search
   videos = []
+
   # a dict to save video title , ID and channelID 
   # video_details = {
   #   "title" = "title",
@@ -33,12 +34,12 @@ def youtube_search_video(keyword, max_results, dev_key):
     video_details = {}
     if search_result["id"]["kind"] == "youtube#video":
       # pprint.pprint(search_result)
-      print "Video title:\t",search_result["snippet"]["title"]," video ID: \t",search_result["id"]["videoId"]," From channel ", search_result["snippet"]["channelId"]
+      # print "Video title:\t",search_result["snippet"]["title"]," video ID: \t",search_result["id"]["videoId"]," From channel ", search_result["snippet"]["channelId"]
 
       video_details['title'] = search_result["snippet"]["title"]
       video_details['videoID'] = search_result["id"]["videoId"]
       video_details['channelID'] =  search_result["snippet"]["channelId"]
       videos.append(video_details)
 
-  pprint.pprint(videos)
-  return video_details['videoID']
+  # pprint.pprint(videos)
+  return video_details['videoID'], video_details['title']

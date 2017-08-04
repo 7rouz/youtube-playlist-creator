@@ -1,18 +1,25 @@
 from search import youtube_search_video
 from playlist_handler import playlists_insert, playlists_update, playlist_items_insert 
+from keywords_handler import get_keywords
 from apiclient.errors import HttpError
 import ConfigParser
+from datetime import date 
 
-keyword_list = ["kings of leon", "the head I hold"]
+# keyword_list = ["kings of leon", "the head I hold"]
 
 if __name__ == "__main__":
   config_youtube = ConfigParser.ConfigParser()
   config_youtube.read("config.cfg")
   dev_key = config_youtube.get('defaults','DEVLOPER_KEY')
 
+  # TODO 
+  # use fallback default values for playlist_title and keyword_file
+  playlist_title = config_youtube.get('defaults', 'PLAYLIST_TITLE')
+  keyword_file = config_youtube.get('defaults', 'KEYWORD_FILE')
+
   # create a playlist
   playlist = playlists_insert(
-            {'snippet.title': 'test_playlist',
+            {'snippet.title': playlist_title,
              'snippet.description': 'a playlist created using youtube API',
              'snippet.tags[]': 'youtube_API, Rafik, Python', 
              'snippet.defaultLanguage': '',
@@ -30,13 +37,14 @@ if __name__ == "__main__":
 #     onBehalfOfContentOwner='')
 # 
 
+  keyword_list = get_keywords(keyword_file)
   for keyword in keyword_list:
     try:
       # search for videos that match keywords
       #    keyword: keywords to use wheen sarching 
       #    dev_key: Youtube API key
       #    max_results: maximum number of returned results it goes from 1 to 50
-      videoID = youtube_search_video(keyword=keyword,dev_key=dev_key,max_results=1
+      videoID, video_title = youtube_search_video(keyword=keyword,dev_key=dev_key,max_results=1
 )
       # add the returned video to the playlist 
       playlist_items_insert(
@@ -46,7 +54,8 @@ if __name__ == "__main__":
          'snippet.position': ''},
         part='snippet',
         onBehalfOfContentOwner='')
- 
+
+      print video_title ,"has been added to", playlist_title  
     except HttpError, e:
       print "An HTTP error %d occurred:\n%s" % (e.resp.status, e.content)
 

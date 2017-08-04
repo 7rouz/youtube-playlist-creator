@@ -100,7 +100,7 @@ def playlists_insert(properties, **kwargs):
     **kwargs
   ).execute()
 
-  pprint.pprint (results)
+  # pprint.pprint (results)
   return results
 
 # Update a playlist 
@@ -123,4 +123,4 @@ def playlist_items_insert(properties, **kwargs):
     **kwargs
   ).execute()
 
-  pprint.pprint(results)
+  # pprint.pprint(results)
