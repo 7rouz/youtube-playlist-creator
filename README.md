@@ -4,6 +4,8 @@ A project that creates a youtube from a list of songs' keywords
 ## How to use
 (This project is still a work in progress so this version is just 
 First you need to get a key that will allow you to use Youtube API. you need a google account then you can go and get your key here https://console.cloud.google.com/apis/credential
+Then you need to download ID clients OAuth 2.0 file and rename it client_secrets.json and put it in the project. 
+
 
 Second you need to substitute the value of DEVELOPER_KEY in search.py .
 
@@ -26,5 +28,9 @@ Now you are all set to run the command that will return videos, channels, playli
 
 Run the following command:
 ```shell
-python youtube_playlist_creator.py
+python youtube_playlist_creator.py --noauth_local_webserver
 ```
+you should see an url that you well need to visit to get akey to authenticate the script.
+
+That's it. 
+Now you should "Song title" has been added to "playlist name" for each song added.
