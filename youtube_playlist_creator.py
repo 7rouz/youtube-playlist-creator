@@ -10,7 +10,6 @@ from datetime import date
 if __name__ == "__main__":
   config_youtube = ConfigParser.ConfigParser()
   config_youtube.read("config.cfg")
-  dev_key = config_youtube.get('defaults','DEVLOPER_KEY')
 
   # TODO 
   # use fallback default values for playlist_title and keyword_file
@@ -44,8 +43,8 @@ if __name__ == "__main__":
       #    keyword: keywords to use wheen sarching 
       #    dev_key: Youtube API key
       #    max_results: maximum number of returned results it goes from 1 to 50
-      videoID, video_title = youtube_search_video(keyword=keyword,dev_key=dev_key,max_results=1
-)
+      videoID, video_title = youtube_search_video(keyword=keyword,
+                                                  max_results=1)
       # add the returned video to the playlist 
       playlist_items_insert(
         {'snippet.playlistId': playlist["id"],
