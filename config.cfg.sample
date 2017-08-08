@@ -1,12 +1,4 @@
 [defaults]
-# Here goes the api key that you can get from the link below
-# https://console.cloud.google.com/apis/credentials
-# Set DEVELOPER_KEY to the API key value from the APIs & auth > Registered apps
-# tab of
-#   https://cloud.google.com/console
-# Please ensure that you have enabled the YouTube Data API for your project.
-developer_key = "change_me"
-
 # The title thatyou xant to give to your playlist
 playlist_title = July 2017
 
