@@ -1,13 +1,13 @@
-from apiclient.discovery import build
-from oauth2client.tools import argparser
 import pprint
 
-YOUTUBE_API_SERVICE_NAME = "youtube"
-YOUTUBE_API_VERSION = "v3"
+from apiclient.discovery import build
+from oauth2client.tools import argparser
+from oauth2_authentication import get_authenticated_service
 
 def youtube_search_video(keyword, max_results, dev_key):
-  youtube = build(YOUTUBE_API_SERVICE_NAME, YOUTUBE_API_VERSION,
-    developerKey=dev_key)
+
+  args = argparser.parse_args()
+  youtube = get_authenticated_service(args)
 
   # Call the search.list method to retrieve results matching the specified
   # query term.
