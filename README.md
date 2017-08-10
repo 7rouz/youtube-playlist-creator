@@ -4,25 +4,35 @@ A project that creates a youtube from a list of songs' keywords
 ## Prerequirements
 Before running this projet you need to make sure that you have google api credentials and that you can use two of Google APIs which are ```youtube data api``` and ```youtube analytics api```. And here are the steps to do so.
 
-### Create google pi credentials
+### Create google API OAuth credentials
 - Go to https://console.developers.google.com/apis/credentials
 - If you are not connected it will ask you to connect with your google account
 - Next you will create credentials that will be used later on, click the blue button to create credential and choose ID client OAuth 
-[![Create credentials](/img/create_OAuth_id.PNG?raw=true)]
+
+![Create credentials](/img/create_OAuth_id.PNG?raw=true)
+
 - Then choose other from the list of application types and give the application the name ```youtube-playlist-creator``` and click create then ok
-[![Choose application type and name](/img/application_type_name.PNG?raw=true)]
+
+![Choose application type and name](/img/application_type_name.PNG?raw=true)
 
 ### Activate APIs
 - Go to https://console.developers.google.com/apis/dashboard
 - Then click on enable APIS AND SERVICES
-[![enable api menu](/img/enableAPI.PNG?raw=true)]
+
+![enable api menu](/img/enableAPI.PNG?raw=true)
+
 - Go down to the section API Youtube
-[![youtube api section](/img/youtubeAPI.PNG?raw=true)]
+
+![youtube api section](/img/youtubeAPI.PNG?raw=true)
+
 - Click on link ```Youtube Data API```
 - Click on activate 
-[![activate Youtube data API](/img/enable_youtube_data_api.PNG?raw=true)]
+
+![activate Youtube data API](/img/enable_youtube_data_api.PNG?raw=true)
+
 - Go back and do the same for ```YouTube Analytics API```
-[![activate Youtube analytics API](/img/youtube_analytics_API.PNG?raw=true)]
+
+![activate Youtube analytics API](/img/youtube_analytics_API.PNG?raw=true)
 
 ## How to use 
 First you need to clone this repository
@@ -31,7 +41,9 @@ git clone https://github.com/7rouz/youtube-playlist-creator.git
 ```
 
 Then you need to download ID clients OAuth 2.0 file from here https://console.developers.google.com/apis/credentials, rename it client_secrets.json and put it in the project folder youtube_playlist_creator. 
-[![Download credentials](/img/DL_credentials.PNG?raw=true)]
+
+![Download credentials](/img/DL_credentials.PNG?raw=true)
+
 Second you need to create config.cfg (there is already config.cfg.sample to give you an idea how your config file should look like).
 
 Next, you need to create keyword.txt file which contains songs keywords. Each line contains a song keywords. There is a keyword.txt.sample file for further details.
