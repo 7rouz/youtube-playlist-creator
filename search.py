@@ -1,13 +1,13 @@
 import pprint
 
 from apiclient.discovery import build
-from oauth2client.tools import argparser
+#from oauth2client.tools import argparser
 from oauth2_authentication import get_authenticated_service
 
 def youtube_search_video(keyword, max_results):
 
-  args = argparser.parse_args()
-  youtube = get_authenticated_service(args)
+  #args = argparser.parse_args()
+  youtube = get_authenticated_service()
 
   # Call the search.list method to retrieve results matching the specified
   # query term.

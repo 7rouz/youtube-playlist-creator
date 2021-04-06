@@ -1,9 +1,12 @@
 import httplib2
 
 from apiclient.discovery import build
-from oauth2client.client import flow_from_clientsecrets
-from oauth2client.file import Storage
-from oauth2client.tools import run_flow
+
+import os
+import pickle
+from google_auth_oauthlib.flow import InstalledAppFlow
+from google.auth.transport.requests import Request
+from googleapiclient.discovery import build
 
 # The CLIENT_SECRETS_FILE variable specifies the name of a file that contains
 # the OAuth 2.0 information for this application, including its client_id and
@@ -21,19 +24,35 @@ API_VERSION = "v3"
 MISSING_CLIENT_SECRETS_MESSAGE = "WARNING: Please configure OAuth 2.0" 
 
 # Authorize the request and store authorization credentials.
-def get_authenticated_service(args):
-  flow = flow_from_clientsecrets(CLIENT_SECRETS_FILE, scope=YOUTUBE_READ_WRITE_SSL_SCOPE,
-    message=MISSING_CLIENT_SECRETS_MESSAGE)
+def get_authenticated_service():
+  credentials = None
 
-  storage = Storage("youtube-playlist-creator-oauth2.json")
-  credentials = storage.get()
+  if os.path.exists('token.pickle'):
+    print('Loading Credentials From File...')
+    with open('token.pickle', 'rb') as token:
+        credentials = pickle.load(token)
 
-  if credentials is None or credentials.invalid:
-    credentials = run_flow(flow, storage, args)
+  # If there are no valid credentials available, then either refresh the token or log in.
+  if not credentials or not credentials.valid:
+    if credentials and credentials.expired and credentials.refresh_token:
+        print('Refreshing Access Token...')
+        credentials.refresh(Request())
+    else:
+        print('Fetching New Tokens...')
+        flow = InstalledAppFlow.from_client_secrets_file(
+            CLIENT_SECRETS_FILE,
+            scopes=[YOUTUBE_READ_WRITE_SSL_SCOPE]
+        )
 
-  # Trusted testers can download this discovery document from the developers page
-  # and it should be in the same directory with the code.
+        flow.run_local_server(port=8080, prompt='consent',
+                              authorization_prompt_message='')
+        credentials = flow.credentials
+
+        # Save the credentials for the next run
+        with open('token.pickle', 'wb') as f:
+            print('Saving Credentials for Future Use...')
+            pickle.dump(credentials, f)
   return build(API_SERVICE_NAME, API_VERSION,
-      http=credentials.authorize(httplib2.Http()))
+      credentials=credentials)
 
 
