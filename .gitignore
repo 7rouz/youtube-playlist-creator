@@ -84,13 +84,16 @@ celerybeat-schedule
 
 # virtualenv
 .youtube-api/
-.venv
+.venv*
 .original_venv/
 venv/
 ENV/
 
 # pycharm ide files
 .idea
+
+# visual code files
+.vscode
 
 # Spyder project settings
 .spyderproject
@@ -107,6 +110,6 @@ ENV/
 
 # conf files 
 config.cfg
-keywords.txt
+keyword.txt
 client_secrets.json
 token.pickle
