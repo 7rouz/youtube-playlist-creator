@@ -33,10 +33,7 @@ def youtube_search_video(keyword, max_results):
   for search_result in search_response.get("items", []):
     video_details = {}
     if search_result["id"]["kind"] == "youtube#video":
-      # pprint.pprint(search_result)
-      # print "Video title:\t",search_result["snippet"]["title"]," video ID: \t",search_result["id"]["videoId"]," From channel ", search_result["snippet"]["channelId"]
-
-      video_details['title'] = search_result["snippet"]["title"]
+      video_details['title'] = search_result["snippet"]["title"].encode("utf-8")
       video_details['videoID'] = search_result["id"]["videoId"]
       video_details['channelID'] =  search_result["snippet"]["channelId"]
       videos.append(video_details)

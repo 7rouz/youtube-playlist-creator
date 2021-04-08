@@ -13,7 +13,7 @@ if __name__ == "__main__":
 
   # TODO 
   # use fallback default values for playlist_title and keyword_file
-  playlist_title = config_youtube.get('defaults', 'PLAYLIST_TITLE')
+  playlist_title = config_youtube.get('defaults', 'PLAYLIST_TITLE').encode("utf-8")
   keyword_file = config_youtube.get('defaults', 'KEYWORD_FILE')
 
   # create a playlist
@@ -54,7 +54,7 @@ if __name__ == "__main__":
         part='snippet',
         onBehalfOfContentOwner='')
 
-      print video_title ,"has been added to", playlist_title  
+      print video_title ,"has been added to", playlist_title
     except HttpError, e:
       print "An HTTP error %d occurred:\n%s" % (e.resp.status, e.content)
 
