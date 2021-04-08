@@ -10,10 +10,10 @@ To create a youtube playlist from a text file containing a list of songs.
 You find how to do that in the next sections.
 
 ### Create google API OAuth credentials
-1 - Choose or create a project to use.
-2 - Go to "APIs & Services" 
-![APIs and Services](/img/apis_services.PNG?raw=true)
-3 - Go to "OAuth consent screen" to consent that you authorize the app to make action on your behave.
+1. Choose or create a project to use.
+2. Go to "APIs & Services" 
+  ![APIs and Services](/img/apis_services.PNG?raw=true)
+3. Go to "OAuth consent screen" to consent that you authorize the app to make action on your behave.
   we will go through the steps one by one:
   - first step: choose external as shown in the following image
     ![External application](/img/oauth_external_app.PNG?raw=true)
@@ -32,7 +32,7 @@ You find how to do that in the next sections.
   - fifth and final step: publish app
     Now that consent is over, you need to publish your application by clicking "publish app"
     ![Publish application](/img/publish.PNG?raw=true)
-4 - Go to https://console.developers.google.com/apis/credentials. Click "+ CREATE CREDENTIALS":
+4. Go to https://console.developers.google.com/apis/credentials. Click "+ CREATE CREDENTIALS":
   - first step: Application type.
     choose from the list "Web application". it's confusing to use web application as type for an application that's technically a script. but don't worry about it. the application is faking a web application using 'google_auth_oauthlib.flow'.
   - Second step: configuring client ID
@@ -41,8 +41,8 @@ You find how to do that in the next sections.
     Authorized redirect URIs: http://localhost:8080/
   - click "create"
     ![Create OAuth creds](/img/OAuth_creation.PNG?raw=true)
-5 - Download OAuth client ID json.
-    ![Download OAuth creds](/img/download_OAuth_client_id.PNG?raw=true)
+5. Download OAuth client ID json.
+  ![Download OAuth creds](/img/download_OAuth_client_id.PNG?raw=true)
 
 ### Activate APIs
 - Go to https://console.developers.google.com/apis/dashboard
@@ -71,7 +71,7 @@ git clone https://github.com/7rouz/youtube-playlist-creator.git
 
 Then you need to download ID clients OAuth 2.0 file from here https://console.developers.google.com/apis/credentials, rename it client_secrets.json and put it in the project folder youtube_playlist_creator. 
 
-![Download credentials](/img/download_OAuth_client_id.PNG.PNG?raw=true)
+![Download credentials](/img/download_OAuth_client_id.PNG?raw=true)
 
 Second you need to create config.cfg (there is already config.cfg.sample to give you an idea how your config file should look like).
 
