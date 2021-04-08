@@ -5,10 +5,10 @@ import pprint
 
 from oauth2_authentication import get_authenticated_service
 from apiclient.errors import HttpError
-from oauth2client.tools import argparser
+# from oauth2client.tools import argparser
 
-args = argparser.parse_args()
-service = get_authenticated_service(args)
+# args = argparser.parse_args()
+service = get_authenticated_service()
 
 # Build a resource based on a list of properties given as key-value pairs.
 # Leave properties with empty values out of the inserted resource.

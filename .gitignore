@@ -85,8 +85,12 @@ celerybeat-schedule
 # virtualenv
 .youtube-api/
 .venv
+.original_venv/
 venv/
 ENV/
+
+# pycharm ide files
+.idea
 
 # Spyder project settings
 .spyderproject
@@ -103,6 +107,6 @@ ENV/
 
 # conf files 
 config.cfg
+keywords.txt
 client_secrets.json
-youtube_playlist_creator.py-oauth2.json
-youtube-playlist-creator-oauth2.json
+token.pickle
